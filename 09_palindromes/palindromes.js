@@ -1,9 +1,15 @@
 const palindromes = function (arg) {
-    let newArray = [];
-    for (i = arg.length; i >= 0; i--){
-        newArray.push(arg.at(i));
-    }
-    return arg == newArray.join("");
+	const alpha = "abcdefghijklmnopqrstuvwxyz1234567890";
+
+	const cleanString = arg
+		.toLowerCase()
+		.split("")
+		.filter((val) => alpha.includes(val))
+		.join("");
+
+	const reverseString = cleanString.split("").reverse().join("");
+
+	return cleanString == reverseString;
 };
 
 // Do not edit below this line
